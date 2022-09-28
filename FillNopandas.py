@@ -57,7 +57,6 @@ def writeFile(result):
 	with open('output.csv', 'w') as output_file:
 		csvwriter = csv.writer(output_file) 
 
-		# writing the result rows 
 		csvwriter.writerows(result)
 
 def processChoice(choice, df):
