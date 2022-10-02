@@ -12,17 +12,17 @@ import pandas as pd
 ##FUNCTTIONS
 
 
-def removeNullRows(df):             #Removes te rows wth missing data
-    return df.dropna()
+def removeNullRows(data):             #Removes te rows wth missing data
+    return data.dropna()
 
-def fillNullWithMean(df):           #Fills the missing containers with the average mean of the column
-    return df.fillna(round(df.mean(), 2))
+def fillNullWithMean(data):           #Fills the missing containers with the average mean of the column
+    return data.fillna(round(data.mean(), 2))
 
-def fillNullWithInterpolation(df):  #Fills the missing containers by liner interpolation
-    return df.interpolate()
+def fillNullWithInterpolation(data):  #Fills the missing containers by liner interpolation
+    return data.interpolate()
 
-def fillNullWithConstant(df):       #Fills the missing containers wth a global constant
-    return df.fillna(0)
+def fillNullWithConstant(data):       #Fills the missing containers wth a global constant
+    return data.fillna(0)
 
 
 ##MENU
@@ -37,19 +37,19 @@ selection = input("METHODS:\n"
                   "Input method number [1-4]: ")
                   
 try:
-    df = pd.read_csv(file, delimiter = ",")     #Reads the .csv file
+    data = pd.read_csv(file, delimiter = ",")     #Reads the .csv file
     selection = int(selection)                  #Accepts the chosen method of the user
     output = "output.csv"                       #File name of the output
 
     match selection:
         case 1:
-                removeNullRows(df).to_csv(output, index = False)
+                removeNullRows(data).to_csv(output, index = False)
         case 2:
-                fillNullWithMean(df).to_csv(output, index = False)
+                fillNullWithMean(data).to_csv(output, index = False)
         case 3:
-                fillNullWithInterpolation(df).to_csv(output, index = False)
+                fillNullWithInterpolation(data).to_csv(output, index = False)
         case 4:
-                fillNullWithConstant(df).to_csv(output, index = False)
+                fillNullWithConstant(data).to_csv(output, index = False)
         case _:
                 print("Method not in range 1-4")
 
