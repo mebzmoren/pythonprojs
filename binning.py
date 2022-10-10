@@ -1,39 +1,47 @@
-def equalFreq(arr1, m):    
-    a = len(arr1)
-    n = int(a / m)
-    for i in range(0, m):
-        arr = []
-        for j in range(i * n, (i + 1) * n):
-            if j >= a:
-                break
-            arr = arr + [arr1[j]]
-        print(arr)
-  
-def equalWidth(arr1, m):
-    a = len(arr1)
-    w = int((max(arr1) - min(arr1)) / m)
-    min1 = min(arr1)
+def equalWidth(array, m):
+    a = len(array)
+    w = int((max(array) - min(array)) / m)
+    min1 = min(array)
     arr = []
+    count = 1
     for i in range(0, m + 1):
         arr = arr + [min1 + w * i]
     arri=[]
       
     for i in range(0, m):
         temp = []
-        for j in arr1:
+        for j in array:
             if j >= arr[i] and j <= arr[i+1]:
                 temp += [j]
         arri += [temp]
     print(arri) 
+
+def equalFreq(array, m):    
+    a = len(array)
+    n = int(a / m)
+    for i in range(0, m):
+        arr = []
+        for j in range(i * n, (i + 1) * n):
+            if j >= a:
+                break
+            arr = arr + [array[j]]
+        print(arr)
   
-# data to be binned
-data = [5, 10, 11, 13, 15, 35, 50, 55, 72, 92, 204, 215]
+#data to be binned
+data = [64, 23, 76, 23, 76, 64, 35, 22, 57, 24, 57, 44, 34, 44, 76]
   
-# no of bins
-m = 3 
+#number of bins
+bin = 3
+
+print("\nData to be sorted: ", data)
+
+data.sort()
+print("\nSorted data:", data)
+
+print("Number of bins: ",  bin)
+
+print("\nequal width binning")
+equalWidth(data, bin)
   
-print("equal frequency binning")
-equalFreq(data, m)
-  
-print("\n\nequal width binning")
-equalWidth(data, 3)
+print("\nequal frequency binning")
+equalFreq(data, bin)
