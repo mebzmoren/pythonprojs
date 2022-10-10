@@ -1,3 +1,10 @@
+#This program has an array of fifteen numbers
+#The fifteen numbers will be sorted from lowest to highest
+#The numbers will be binned by equal width and equal frequency with 3 bins
+
+#Made by Ellyza Mari Jocson Papas
+#Subject: Compsci 35 - A: Data Mining
+
 def equalWidth(array, m):
     a = len(array)
     w = int((max(array) - min(array)) / m)
