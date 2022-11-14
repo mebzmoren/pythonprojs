@@ -33,7 +33,6 @@ def generateFrequentItemSet(CandidateList, noOfTransactions, minimumSupport, dat
         fatherFrequentArray.append(k)
 
     if len(frequentItemsArray) == 2 or len(frequentItemsArray) == 0:
-        #print("Test message ko lang for checking, This will be returned")
         returnArray = fatherFrequentArray
         return returnArray
 
